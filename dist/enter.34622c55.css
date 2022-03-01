@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.enterWrapper{
+    /*background-color: mediumvioletred;*/
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.loginForm{
+    border-radius: 10px;
+    border: blueviolet solid 5px;
+    padding: 30px;
+    height: fit-content;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+/*# sourceMappingURL=/enter.34622c55.sass.map */
