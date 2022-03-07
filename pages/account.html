@@ -117,50 +117,34 @@ l51 -24 2385 0 2385 0 51 24 c113 52 154 174 96 287 -29 57 -70 92 -131 109
                 <li class="preInfoField">
                    &#9679 ФИО:
                 </li>
-                <li class="infoField">
-                    Филатов Артемий Игоревич
+                <li class="infoField" id="fio">
 
                 </li>
 
                 <li class="preInfoField">
                     &#9679 Номер подразделения
                 </li>
-                <li class="infoField">
-                    #478398745607304985-098673-498gu-9ds8t7-94857t-ubrtsdofhgps-sdfs=ddsfjhpbst[e[th-mv
+                <li class="infoField" id="division">
+
                 </li>
 
                 <li class="preInfoField">
                     &#9679 Район
                 </li>
-                <li class="infoField">
-                    Ниженегродово
+                <li class="infoField" id="district">
+
                 </li>
 
             </ul>
         </div>
 
-        <div class="pointList">
-
+        <div class="pointListBlock">
+            <ul class="pointList">
+            </ul>
         </div>
     </div>
 
 
-    <script>
-        let closeSBBtn = document.querySelector(".expandSidebarBtn")
-        let sideBar = document.querySelector(".sidebar")
-        let main = document.querySelector(".userInfoWrapper")
-
-
-        //для разработки
-        // sideBar.classList.toggle("active")
-        // main.classList.toggle("active")
-
-
-        closeSBBtn.onclick = function(){
-            sideBar.classList.toggle("active")
-            main.classList.toggle("active")
-
-        }
-    </script>
+    <script src="../scripts/account.js" defer></script>
 </body>
 </html>

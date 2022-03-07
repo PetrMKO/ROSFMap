@@ -39,10 +39,12 @@ body{
 
   .linkText{
     opacity: 1;
+    transition-property: opacity;
+    transition-delay: .3s;
   }
 
   .navBar li{
-    padding: 3px;
+    padding: 0;
   }
 }
 
@@ -51,6 +53,9 @@ body{
   padding: 5px;
 
   li{
+    padding: 0;
+  }
+  a{
     position: relative;
     box-sizing: content-box;
     padding: 3px 6px;
@@ -60,6 +65,8 @@ body{
     grid-auto-flow: column;
     column-gap: 0.4em;
     align-items: center;
+    text-decoration: none;
+    color: inherit;
     span{
       margin:2px 0;
     }
@@ -87,7 +94,7 @@ body{
 .exitLink{
   box-sizing: border-box;
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   padding: 3px 14px;
   width: 99%;
   display: inline-grid;
@@ -132,6 +139,7 @@ body{
 }
 
 .userInfoBlock{
+  position: relative;
   background-color: rgba(0, 0, 0, .1);
 
   .infoList{
@@ -158,4 +166,48 @@ body{
       overflow: hidden scroll;
     }
   }
+}
+
+.errBlock{
+  box-sizing: border-box;
+  padding: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 173px;
+  width: 100%;
+  background-color: darkgrey;
+  border: 5px solid red;
+  color: red;
+  font-size: large;
+  font-weight: bold;
+  display: table;
+  div{
+    display: table-cell;
+    vertical-align: middle;
+    text-align:center;
+
+  }
+}
+
+.pointListBlock{
+  position: relative;
+  background-color: rgba(0, 0, 0, .1);
+
+  .pointList{
+    padding: 15px 10px;
+    list-style: none;
+  }
+
+}
+
+.pointInfoField{
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  margin-top: .1em;
+  border-radius: 5px;
+  border: rgba(20, 25, 227, .5) solid 2px;
+  padding: .2em .3em;
+  overflow: hidden scroll;
 }

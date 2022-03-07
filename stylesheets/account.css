@@ -35,9 +35,11 @@ body {
 }
 .sidebar.active .linkText {
   opacity: 1;
+  transition-property: opacity;
+  transition-delay: 0.3s;
 }
 .sidebar.active .navBar li {
-  padding: 3px;
+  padding: 0;
 }
 
 .navBar {
@@ -45,6 +47,9 @@ body {
   padding: 5px;
 }
 .navBar li {
+  padding: 0;
+}
+.navBar a {
   position: relative;
   box-sizing: content-box;
   padding: 3px 6px;
@@ -54,8 +59,10 @@ body {
   grid-auto-flow: column;
   column-gap: 0.4em;
   align-items: center;
+  text-decoration: none;
+  color: inherit;
 }
-.navBar li span {
+.navBar a span {
   margin: 2px 0;
 }
 
@@ -80,7 +87,7 @@ body {
 .exitLink {
   box-sizing: border-box;
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   padding: 3px 14px;
   width: 99%;
   display: inline-grid;
@@ -123,6 +130,7 @@ body {
 }
 
 .userInfoBlock {
+  position: relative;
   background-color: rgba(0, 0, 0, 0.1);
 }
 .userInfoBlock .infoList {
@@ -142,6 +150,47 @@ body {
   margin-bottom: 5px;
   margin-top: 0.1em;
   max-height: 65px;
+  border-radius: 5px;
+  border: rgba(20, 25, 227, 0.5) solid 2px;
+  padding: 0.2em 0.3em;
+  overflow: hidden scroll;
+}
+
+.errBlock {
+  box-sizing: border-box;
+  padding: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 173px;
+  width: 100%;
+  background-color: darkgrey;
+  border: 5px solid red;
+  color: red;
+  font-size: large;
+  font-weight: bold;
+  display: table;
+}
+.errBlock div {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.pointListBlock {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.pointListBlock .pointList {
+  padding: 15px 10px;
+  list-style: none;
+}
+
+.pointInfoField {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  margin-top: 0.1em;
   border-radius: 5px;
   border: rgba(20, 25, 227, 0.5) solid 2px;
   padding: 0.2em 0.3em;
