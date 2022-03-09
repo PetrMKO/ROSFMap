@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const getUrlUserInfo = 'http://localhost:30300/user',
-          getURLPoints = 'http://localhost:30300/points';
+    const getUrlUserInfo = '../testjsons/User.json',
+          getURLPoints = '../testjsons/UserPoints.json';
 
     const infoBlock = document.querySelector('.userInfoBlock')
 
