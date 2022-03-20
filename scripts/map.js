@@ -25,14 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 clusterOpenBalloonOnClick: false
             });
         Map.geoObjects.add(objectManager);
-        objectManager.add(obj);
 
 
-        // $.ajax({
-        //     url: "../testjsons/NormalPoint.json"
-        // }).done(function(data) {
-        //     objectManager.add(data);
-        // });
+        $.ajax({
+            url: '../testjsons/push.json'
+        }).done(function(data) {
+            objectManager.add(data);
+        });
+
+
 
 
         let mySearchControl = new ymaps.control.SearchControl({
@@ -66,11 +67,13 @@ document.addEventListener('DOMContentLoaded', () => {
         objectManager.objects.events.add('click', function (e) {
             var objectId = e.get('objectId'),
                 obj = objectManager.objects.getById(objectId);
+            console.log(e.get('objectId'));
             if (hasBalloonData(objectId)) {
                 objectManager.objects.balloon.open(objectId);
             } else {
                 obj.properties.balloonContent = "Идет загрузка данных...";
                 objectManager.objects.balloon.open(objectId);
+
                 loadBalloonData(objectId).then(function (data) {
                     obj.properties.balloonContent = data;
                     objectManager.objects.balloon.setData(obj);
@@ -84,38 +87,49 @@ document.addEventListener('DOMContentLoaded', () => {
         features: []
     }
 
+    ymaps.ready(init);
 
-    fetch('../testjsons/NormalPoint.json')
-        .then(data => data.json())
-        .then(function (data) {
-            data.Holes.forEach((item, key) => {
-                namePointsArr.push(item.HoleNumber);
-                coords = item.gps.split(',');
-                coords[0] = +coords[0];
-                coords[1] = +coords[1];
 
-                obj.features.push(
-                    {
-                        type: "Feature",
-                        id: key,
-                        geometry: {
-                            type: "Point",
-                            coordinates: coords
-                        },
-                        properties: {
-                            hintContent: item.HoleNumber
-                        }
-                    }
-                )
-            })
-            pointsArr = obj.features;
-            console.log(pointsArr);
+    // fetch('https://geocode-maps.yandex.ru/1.x/?format=json&apikey=74bf9661-b70c-4d9e-875c-fc4500cf3256=55.689941211,54.484870589&kind=hydro&results=1')
+    //     .then(data => {
+    //         console.log(data.json())
+    //     })
 
-            return JSON.stringify(obj)
-        }).then(data => {
-            obj = data;
-            ymaps.ready(init);
-        })
+    //aef71caa-e287-4cde-a13b-e6a23db70fd8
+    //https://geocode-maps.yandex.ru/1.x/?format=json&apikey=aef71caa-e287-4cde-a13b-e6a23db70fd8&geocode=Москва, улица Новый Арбат, дом 24
+        // .then(data => data.json())
+        // .then(function (data) {
+        //     data.Holes.forEach((item, key) => {
+        //         namePointsArr.push(item.HoleNumber);
+        //         coords = item.gps.split(',');
+        //         coords[0] = +coords[0];
+        //         coords[1] = +coords[1];
+        //
+        //         obj.features.push(
+        //             {
+        //                 type: "Feature",
+        //                 id: key,
+        //                 geometry: {
+        //                     type: "Point",
+        //                     coordinates: coords
+        //                 },
+        //                 properties: {
+        //                     hintContent: item.HoleNumber
+        //                 }
+        //             }
+        //         )
+        //     })
+        //     pointsArr = obj.features;
+        //     console.log(pointsArr);
+        //
+        //
+        //     console.log(JSON.stringify(obj));
+        //
+        //     return JSON.stringify(obj)
+        // }).then(data => {
+        //     obj = data;
+        //     ymaps.ready(init);
+        // })
 
 
 
